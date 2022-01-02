@@ -5,6 +5,9 @@ const geocode=require('./utils/geocode')
 const forecast=require('./utils/forecast')
 // const { hasSubscribers } = require('diagnostics_channel')
 const app=express()
+
+const port= process.env.PORT||3000
+
 const htmlpath=path.join(__dirname,'../public')
 //express.static middleware allows some files to access from the client side (i.e it makes those files as public)
 app.use(express.static(htmlpath))
@@ -122,6 +125,6 @@ app.get('/help/*',(req,res)=>{
         error:"This is 404 error"
     })
 })
-app.listen(3000,()=>{
-    console.log('server is up on port 3000')
+app.listen(port,()=>{
+    console.log('server is up on port ',port)
 })

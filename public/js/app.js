@@ -21,7 +21,9 @@ weatherForm.addEventListener('submit',(e)=>{
     // console.log('testing')
     text1.textContent='Loding...'
     text2.textContent=''
-    const string="http://localhost:3000/weather?address="+location
+    // const string="http://localhost:3000/weather?address="+location
+    //for heroku deployment use the below 'string' , above is only for local host
+    const string="/weather?address="+location
     fetch(string).then((res)=>{
         res.json().then((data)=>{
             if(data.error)
